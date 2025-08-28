@@ -20,10 +20,32 @@
         /* Custom styles */
         body {
             font-family: 'Inter', sans-serif;
+            -webkit-text-size-adjust: 100%;
+            text-size-adjust: 100%;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        /* Prevent horizontal scroll on mobile */
+        html, body {
+            max-width: 100vw;
+            overflow-x: hidden;
         }
 
         .gradient-bg {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        /* Better touch targets for mobile */
+        @media (max-width: 640px) {
+            button, a, input, select {
+                min-height: 44px;
+                min-width: 44px;
+            }
+            
+            input, select, textarea {
+                font-size: 16px !important; /* Prevent zoom on iOS */
+            }
         }
 
         .card-hover {
@@ -111,26 +133,40 @@
         @media (max-width: 640px) {
             .btn-primary {
                 width: 100%;
-                padding: 0.875rem 1.5rem;
-                font-size: 1rem;
+                padding: 0.75rem 1rem;
+                font-size: 0.95rem;
                 margin-bottom: 0.5rem;
+                height: auto;
+                white-space: normal;
             }
             
             .floating-element {
-                animation: none; /* Disable animations on mobile for better performance */
+                animation: none;
             }
 
             h1 {
-                font-size: 2rem !important;
-                line-height: 1.2 !important;
+                font-size: 1.75rem !important;
+                line-height: 1.3 !important;
+                letter-spacing: -0.01em;
             }
 
             h2 {
-                font-size: 1.75rem !important;
+                font-size: 1.5rem !important;
+                line-height: 1.3 !important;
             }
 
             p {
-                font-size: 1rem !important;
+                font-size: 0.95rem !important;
+                line-height: 1.5 !important;
+            }
+
+            section {
+                padding: 2rem 0 !important;
+            }
+
+            .container {
+                padding-left: 1rem !important;
+                padding-right: 1rem !important;
             }
 
             .service-card {
@@ -376,13 +412,13 @@
     </div>
 
     <!-- Hero Section -->
-    <section id="home" class="relative min-h-screen py-8 sm:py-12 md:py-16 bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 overflow-hidden">
+    <section id="home" class="relative min-h-[85vh] sm:min-h-screen py-6 sm:py-12 md:py-16 bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 overflow-hidden">
         <!-- subtle background blobs -->
-        <div class="absolute -top-16 -left-8 w-48 sm:w-72 h-48 sm:h-72 bg-blue-600/20 rounded-full filter blur-3xl animate-blob"></div>
-        <div class="absolute top-20 right-8 w-64 sm:w-96 h-64 sm:h-96 bg-purple-600/20 rounded-full filter blur-3xl animate-blob animation-delay-2000"></div>
+        <div class="absolute -top-16 -left-8 w-32 sm:w-72 h-32 sm:h-72 bg-blue-600/20 rounded-full filter blur-3xl animate-blob"></div>
+        <div class="absolute top-20 right-8 w-48 sm:w-96 h-48 sm:h-96 bg-purple-600/20 rounded-full filter blur-3xl animate-blob animation-delay-2000"></div>
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center min-h-[calc(100vh-6rem)]">
+        <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-4 sm:gap-8 lg:gap-12 items-center min-h-[calc(85vh-4rem)] sm:min-h-[calc(100vh-6rem)]">
                 <!-- Left: Content -->
                 <div class="text-center lg:text-left" data-aos="fade-right">
                     <span class="hidden md:inline-flex items-center px-3 sm:px-4 py-1 sm:py-1.5 rounded-full text-xs sm:text-sm font-medium bg-gradient-to-r from-blue-500 to-purple-600 text-white mb-4 sm:mb-6">
@@ -390,13 +426,13 @@
                         Trusted advisors since 2010
                     </span>
 
-                    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-4 sm:mb-6">
+                    <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-white leading-tight mb-4 sm:mb-6 px-4 sm:px-0">
                         Grow smarter. Move faster.
                         <br class="hidden sm:block">
                         <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-purple-300 block sm:inline-block mt-2 sm:mt-0">Business strategy that works</span>
                     </h1>
 
-                    <p class="text-lg text-blue-100 max-w-xl mx-auto lg:mx-0 mb-8">We help startups and enterprises create measurable growth through strategy, operations, and data-driven execution.</p>
+                    <p class="text-base sm:text-lg text-blue-100 max-w-xl mx-auto lg:mx-0 mb-8 px-4 sm:px-0">We help startups and enterprises create measurable growth through strategy, operations, and data-driven execution.</p>
 
                     <div class="flex flex-col sm:flex-row items-center sm:items-start gap-4 justify-center lg:justify-start">
                         <a href="#contact-form" class="btn-primary inline-flex items-center justify-center text-white px-6 py-3 rounded-2xl font-semibold shadow-lg w-full sm:w-auto">
@@ -410,9 +446,9 @@
 
                     <div class="mt-10 flex items-center justify-center lg:justify-start gap-8 text-sm text-blue-200">
                         <div class="flex items-center gap-3">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon" class="h-6 opacity-60" style="filter: brightness(0) invert(1);">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" class="h-6 opacity-60" style="filter: brightness(0) invert(1);">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix" class="h-6 opacity-60" style="filter: brightness(0) invert(1);">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon" class="hidden md:block h-6 opacity-60" style="filter: brightness(0) invert(1);">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" class="hidden md:block h-6 opacity-60" style="filter: brightness(0) invert(1);">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix" class="hidden md:block h-6 opacity-60" style="filter: brightness(0) invert(1);">
                         </div>
                     </div>
                 </div>
@@ -477,15 +513,15 @@
     </style>
 
     <!-- Services Section -->
-    <section id="services" class="py-12 sm:py-16 md:py-20 px-4 sm:px-6 bg-gradient-to-br from-gray-50 to-blue-50">
+    <section id="services" class="py-8 sm:py-12 md:py-16 lg:py-20 px-4 sm:px-6 bg-gradient-to-br from-gray-50 to-blue-50">
         <div class="max-w-6xl mx-auto">
             <div data-aos="fade-up">
-                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center text-gray-800 mb-3 sm:mb-4">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center text-gray-800 mb-3 sm:mb-4 px-4">
                     We Help You Build, <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Optimize & Scale</span>
                 </h2>
-                <p class="text-center text-gray-600 mb-10 sm:mb-16 max-w-2xl mx-auto text-base sm:text-lg px-4">Our comprehensive services are designed to address your most critical business challenges and unlock new opportunities for growth.</p>
+                <p class="text-center text-gray-600 mb-8 sm:mb-12 md:mb-16 max-w-2xl mx-auto text-sm sm:text-base md:text-lg px-4">Our comprehensive services are designed to address your most critical business challenges and unlock new opportunities for growth.</p>
             </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
                 <!-- Service Cards with enhanced animations -->
                 <div class="service-card bg-white/80 p-8 rounded-2xl shadow-lg" data-aos="fade-up" data-aos-delay="100">
                     <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
@@ -573,14 +609,14 @@
 </section>
 
     <!-- Testimonials Section -->
-    <section id="testimonials" class="py-20 px-6 bg-gradient-to-br from-gray-50 to-blue-50">
+    <section id="testimonials" class="py-10 sm:py-16 md:py-20 px-4 sm:px-6 bg-gradient-to-br from-gray-50 to-blue-50">
         <div class="max-w-6xl mx-auto">
             <div data-aos="fade-up">
-                <h2 class="text-3xl md:text-5xl font-bold text-center text-gray-800 mb-16">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center text-gray-800 mb-8 sm:mb-12 md:mb-16">
                     What Our <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Clients Say</span>
                 </h2>
             </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
                 <!-- Enhanced Testimonial Cards -->
                 <div class="bg-white/80 backdrop-blur-sm p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
                     <div class="flex mb-4">
@@ -626,13 +662,13 @@
     </section>
 
     <!-- Contact Form Section -->
-    <section id="contact-form" class="py-20 px-6 bg-gradient-to-br from-gray-50 to-blue-50">
+    <section id="contact-form" class="py-10 sm:py-16 md:py-20 px-4 sm:px-6 bg-gradient-to-br from-gray-50 to-blue-50">
         <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl md:text-5xl font-bold text-gray-800 mb-4">
+            <div class="text-center mb-8 sm:mb-12 md:mb-16" data-aos="fade-up">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-4">
                     Let's Start Your <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Success Journey</span>
                 </h2>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Ready to transform your business? Get in touch with us today for a free consultation.</p>
+                <p class="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto px-4">Ready to transform your business? Get in touch with us today for a free consultation.</p>
             </div>
             
             <div class="grid lg:grid-cols-5 gap-8 items-start">
@@ -767,9 +803,9 @@
     </section>
 
     <!-- Footer -->
-    <footer id="contact" class="bg-gray-900 text-white py-12 px-6">
+    <footer id="contact" class="bg-gray-900 text-white py-8 sm:py-12 px-4 sm:px-6">
         <div class="max-w-6xl mx-auto">
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
                 <!-- Company Info -->
                 <div>
                     <div class="flex items-center space-x-2 mb-6">
